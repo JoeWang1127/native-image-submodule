@@ -4,3 +4,6 @@
 [submodule "java-shared-dependencies"]
 	path = java-shared-dependencies
 	url = git@github.com:mpeddada1/java-shared-dependencies.git
+[submodule "java-bigquery"]
+	path = java-bigquery
+	url = git@github.com:mpeddada1/java-bigquery.git
