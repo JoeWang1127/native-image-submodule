@@ -1,3 +1,6 @@
 [submodule "gax-java"]
 	path = gax-java
 	url = git@github.com:mpeddada1/gax-java.git
+[submodule "java-shared-dependencies"]
+	path = java-shared-dependencies
+	url = git@github.com:mpeddada1/java-shared-dependencies.git
