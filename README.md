@@ -5,7 +5,7 @@ After cloning the repository follow the following steps to test out changes in g
 1. `cd gax-java`
 2. Make changes in gax.
 3. `git add .` && `git commit -m <message>`
-4. git push origin main
+4. `git push origin main`
 5. In case you want to upload these changes for collaborators to use:
 
 ```build
@@ -14,7 +14,7 @@ git add gax-java
 git commit -m <commit>
 git push origin main
 ```
-
+Collaborators can then call `git submodule update` to pull in these changes onto their local copy of the parent repo.
 6. Call `./gradlew publishToMavenLocal`. This will install GAX to your local maven repository.
 
 ## Step 2: (First time only) Install java-shared-dependencies with latest GAX changes
