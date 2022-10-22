@@ -7,3 +7,6 @@
 [submodule "java-bigquery"]
 	path = java-bigquery
 	url = git@github.com:mpeddada1/java-bigquery.git
+[submodule "java-bigtable"]
+	path = java-bigtable
+	url = git@github.com:mpeddada1/java-bigtable.git
