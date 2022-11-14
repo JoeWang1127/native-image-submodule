@@ -13,6 +13,7 @@
 [submodule "java-bigtable"]
 	path = java-bigtable
 	url = git@github.com:mpeddada1/java-bigtable.git
+	branch = update-gax
 [submodule "java-pubsub"]
 	path = java-pubsub
 	url = git@github.com:mpeddada1/java-pubsub.git
