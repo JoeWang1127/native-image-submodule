@@ -21,3 +21,4 @@
 [submodule "java-spanner-jdbc"]
 	path = java-spanner-jdbc
 	url = git@github.com:mpeddada1/java-spanner-jdbc.git
+	branch = update-gax
