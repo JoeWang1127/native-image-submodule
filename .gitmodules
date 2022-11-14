@@ -17,6 +17,7 @@
 [submodule "java-pubsub"]
 	path = java-pubsub
 	url = git@github.com:mpeddada1/java-pubsub.git
+	branch = update-gax
 [submodule "java-spanner-jdbc"]
 	path = java-spanner-jdbc
 	url = git@github.com:mpeddada1/java-spanner-jdbc.git
