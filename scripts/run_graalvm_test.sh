@@ -55,6 +55,7 @@ fi
 # Library
 # Need to replace based on lib used
 git clone "https://github.com/googleapis/google-cloud-java.git" --depth=1
+ls
 pushd google-cloud-jar-parent
 
 # Replace shared-dependencies version
