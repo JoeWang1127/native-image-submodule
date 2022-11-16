@@ -14,6 +14,8 @@ cd gax-java
 #git checkout update-gax
 # Read current gax version
 GAX_VERSION=$( ./gradlew -q :gax:properties | grep '^version: ' | cut -d' ' -f2 )
+echo $GAX_VERSION
+pwd
 ./gradlew publishToMavenLocal
 
 # java-shared-dependencies
