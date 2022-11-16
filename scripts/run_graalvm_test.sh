@@ -77,6 +77,7 @@ pushd google-cloud-java/java-"${CLIENT_LIBRARY}"
 
 # Run native image tests
 mvn clean install -DskipTests -Denforcer.skip=true
+java --version
 mvn test -Pnative -Denforcer.skip=true
 
 
