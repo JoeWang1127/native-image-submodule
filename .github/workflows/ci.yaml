@@ -15,5 +15,5 @@ jobs:
     steps:
     - name: Test
     - uses: actions/checkout@v3
-      run: |
+    - run: |
         bash scripts/run_graalvm_test.sh
