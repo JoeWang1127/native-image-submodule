@@ -14,4 +14,4 @@ jobs:
         java: [ 11, 17 ]
     steps:
     - name: Test
-      run: run_graalvm_test.sh
+      run: bash scripts/run_graalvm_test.sh
