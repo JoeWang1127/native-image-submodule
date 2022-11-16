@@ -53,8 +53,8 @@ fi
 
 # Library
 # Need to replace based on lib used
-git clone "https://github.com/googleapis/java-${CLIENT_LIBRARY}.git" --depth=1
-pushd java-"${CLIENT_LIBRARY}"
+git clone "https://github.com/googleapis/google-cloud-java.git" --depth=1
+pushd google-cloud-java/java-"${CLIENT_LIBRARY}"
 
 # Replace shared-dependencies version
 xmllint --shell pom.xml << EOF
