@@ -9,13 +9,17 @@ scriptDir="$(realpath "$(dirname "${BASH_SOURCE[0]}")")"
 ## cd to the parent directory, i.e. the root of the git repo
 cd "${scriptDir}"/..
 
+# Load classes in submodule
+git submodule init
+git submodule update
+
 # GAX: Publish gax to local maven to make it available for downstream libraries
 cd gax-java
 #git checkout update-gax
+
 # Read current gax version
 GAX_VERSION=$( ./gradlew -q :gax:properties | grep '^version: ' | cut -d' ' -f2 )
 echo $GAX_VERSION
-pwd
 ./gradlew publishToMavenLocal
 
 # java-shared-dependencies
