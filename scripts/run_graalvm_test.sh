@@ -56,7 +56,7 @@ fi
 # Need to replace based on lib used
 git clone "https://github.com/googleapis/google-cloud-java.git" --depth=1
 ls
-pushd google-cloud-jar-parent
+pushd google-cloud-java/google-cloud-jar-parent
 
 # Replace shared-dependencies version
 xmllint --shell pom.xml << EOF
@@ -66,6 +66,8 @@ cd ../x:version
 set ${SHARED_DEPS_VERSION}
 save pom.xml
 EOF
+
+popd
 
 echo "Modification on the shared dependencies BOM:"
 git diff
