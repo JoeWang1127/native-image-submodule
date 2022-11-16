@@ -5,8 +5,14 @@ on:
   pull_request:
 name: ci
 jobs:
-  units:
+  test:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        graalvm: [ 22.2.0 ]
+        java: [ 11, 17 ]
     steps:
-      - name: Test
-        run: echo "hello"
+    - name: Test
+    - run: cd gax-java
+    - run: ..
