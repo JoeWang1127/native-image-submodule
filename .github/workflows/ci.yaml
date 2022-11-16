@@ -13,7 +13,5 @@ jobs:
         graalvm: [ 22.2.0 ]
         java: [ 11, 17 ]
     steps:
-    - name: Test
-      uses: actions/checkout@v3
-      run: |
-        bash scripts/run_graalvm_test.sh
+    - uses: actions/checkout@v3
+    - run: ./scripts/run_graalvm_test.sh
