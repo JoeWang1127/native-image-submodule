@@ -15,4 +15,4 @@ jobs:
     steps:
     - name: Test
       run: |
-      bash scripts/run_graalvm_test.sh
+        bash scripts/run_graalvm_test.sh
