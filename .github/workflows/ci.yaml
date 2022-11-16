@@ -13,6 +13,14 @@ jobs:
         graalvm: [ 22.2.0 ]
         java: [ 11, 17 ]
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v2
+    - uses: stCarolas/setup-maven@v4
+      with:
+        maven-version: 3.8.1
+    - uses: ayltai/setup-graalvm@v1
+      with:
+        java-version: ${{matrix.java}}
+        graalvm-version: ${{matrix.graalvm}}
+        native-image: true
     - run: sudo apt-get install libxml2-utils
     - run: ./scripts/run_graalvm_test.sh orgpolicy
