@@ -1,0 +1,12 @@
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+name: ci
+jobs:
+  units:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test
+        run: echo "hello"
