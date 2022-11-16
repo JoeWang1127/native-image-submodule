@@ -14,5 +14,4 @@ jobs:
         java: [ 11, 17 ]
     steps:
     - name: Test
-    - run: cd gax-java
-    - run: ..
+    - run: ./run_graalvm_test.sh
