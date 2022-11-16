@@ -51,10 +51,11 @@ if [ -z "${SHARED_DEPS_VERSION}" ]; then
   exit 1
 fi
 
+
 # Library
 # Need to replace based on lib used
 git clone "https://github.com/googleapis/google-cloud-java.git" --depth=1
-pushd google-cloud-java/java-"${CLIENT_LIBRARY}"
+pushd google-cloud-jar-parent
 
 # Replace shared-dependencies version
 xmllint --shell pom.xml << EOF
@@ -65,9 +66,15 @@ set ${SHARED_DEPS_VERSION}
 save pom.xml
 EOF
 
+echo "Modification on the shared dependencies BOM:"
+git diff
+echo
+
+pushd google-cloud-java/java-"${CLIENT_LIBRARY}"
+
 # Run native image tests
-mvn clean install -DskipTests
-mvn test -Pnative
+mvn clean install -DskipTests -Denforcer.skip=true
+mvn test -Pnative -Denforcer.skip=true
 
 
 
