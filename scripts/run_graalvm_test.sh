@@ -21,6 +21,11 @@ echo "**** GAX version ****"
 echo $GAX_VERSION
 ./gradlew publishToMavenLocal
 
+# java-shared-config: Build project
+cd "${scriptDir}"/..
+cd java-shared-config
+mvn clean install -DskipTests
+
 # Install java-shared-dependencies
 cd "${scriptDir}"/..
 pushd java-shared-dependencies/first-party-dependencies
@@ -28,7 +33,7 @@ cd ..
 mvn clean install -DskipTests
 
 # Go to library's directory
-cd ..
+cd "${scriptDir}"/..
 pushd google-cloud-java/java-"${CLIENT_LIBRARY}"
 
 # Run native image tests
