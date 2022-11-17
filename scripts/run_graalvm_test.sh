@@ -30,19 +30,6 @@ cd "${scriptDir}"/..
 #git checkout update-gax
 pushd java-shared-dependencies/first-party-dependencies
 
-# replace version
-#xmllint --shell pom.xml << EOF
-#setns x=http://maven.apache.org/POM/4.0.0
-#cd .//x:artifactId[text()="gax-bom"]
-#cd ../x:version
-#set ${GAX_VERSION}
-#cd ../..
-#cd .//x:artifactId[text()="gax-grpc"]
-#cd ../x:version
-#set ${GAX_VERSION}
-#save pom.xml
-#EOF
-
 # cd into shared-dependencies parent directory
 cd ..
 
