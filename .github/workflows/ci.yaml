@@ -10,7 +10,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        graalvm: [ 22.2.0 ]
+        graalvm: [ 22.3.0 ]
         java: [ 11, 17 ]
     steps:
     - uses: actions/checkout@v2
