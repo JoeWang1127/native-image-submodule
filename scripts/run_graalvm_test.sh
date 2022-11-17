@@ -30,41 +30,40 @@ cd "${scriptDir}"/..
 #git checkout update-gax
 pushd java-shared-dependencies/first-party-dependencies
 
-# cd into shared-dependencies parent directory
+# cd into shared-dependencies parent directory and install
 cd ..
-
 mvn clean install -DskipTests
 
 # Namespace (xmlns) prevents xmllint from specifying tag names in XPath
-SHARED_DEPS_VERSION=$( sed -e 's/xmlns=".*"//' pom.xml | xmllint --xpath '/project/version/text()' - )
-
-if [ -z "${SHARED_DEPS_VERSION}" ]; then
-  echo "Version is not found in pom.xml"
-  exit 1
-fi
+#SHARED_DEPS_VERSION=$( sed -e 's/xmlns=".*"//' pom.xml | xmllint --xpath '/project/version/text()' - )
+#
+#if [ -z "${SHARED_DEPS_VERSION}" ]; then
+#  echo "Version is not found in pom.xml"
+#  exit 1
+#fi
 
 
 # Library
 # Clone monorepo libraries or cd into handwritten libraries in the submodule
-git clone "https://github.com/googleapis/google-cloud-java.git" --depth=1
+#git clone "https://github.com/googleapis/google-cloud-java.git" --depth=1
+cd ..
 pushd google-cloud-java/google-cloud-jar-parent
 
 
 # Replace shared-dependencies version
-xmllint --shell pom.xml << EOF
-setns x=http://maven.apache.org/POM/4.0.0
-cd .//x:artifactId[text()="google-cloud-shared-dependencies"]
-cd ../x:version
-set ${SHARED_DEPS_VERSION}
-save pom.xml
-EOF
+#xmllint --shell pom.xml << EOF
+#setns x=http://maven.apache.org/POM/4.0.0
+#cd .//x:artifactId[text()="google-cloud-shared-dependencies"]
+#cd ../x:version
+#set ${SHARED_DEPS_VERSION}
+#save pom.xml
+#EOF
 
 popd
 
-echo "Modification on the shared dependencies BOM:"
-git diff
-echo
-
+#echo "Modification on the shared dependencies BOM:"
+#git diff
+#echo
 pushd google-cloud-java/java-"${CLIENT_LIBRARY}"
 
 # Run native image tests
