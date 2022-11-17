@@ -3,6 +3,8 @@
 set -e
 
 CLIENT_LIBRARY=$1
+export GOOGLE_CLOUD_PROJECT=mpeddada-tf-25868
+gcloud config set project "$GOOGLE_CLOUD_PROJECT"
 
 ## Get the directory of the build script
 scriptDir="$(realpath "$(dirname "${BASH_SOURCE[0]}")")"
