@@ -1,24 +1,32 @@
 [submodule "gax-java"]
 	path = gax-java
-	url = git@github.com:mpeddada1/gax-java.git
+	url = https://github.com/mpeddada1/gax-java.git
     branch = update-gax
 [submodule "java-shared-dependencies"]
 	path = java-shared-dependencies
-	url = git@github.com:mpeddada1/java-shared-dependencies.git
+	url = https://github.com/mpeddada1/java-shared-dependencies.git
 	branch = update-gax
 [submodule "java-bigquery"]
 	path = java-bigquery
-	url = git@github.com:mpeddada1/java-bigquery.git
+	url = https://github.com/mpeddada1/java-bigquery.git
 	branch = test-setup
 [submodule "java-bigtable"]
 	path = java-bigtable
-	url = git@github.com:mpeddada1/java-bigtable.git
+	url = https://github.com/mpeddada1/java-bigtable.git
 	branch = update-gax
 [submodule "java-pubsub"]
 	path = java-pubsub
-	url = git@github.com:mpeddada1/java-pubsub.git
+	url = https://github.com/mpeddada1/java-pubsub.git
 	branch = update-gax
 [submodule "java-spanner-jdbc"]
 	path = java-spanner-jdbc
-	url = git@github.com:mpeddada1/java-spanner-jdbc.git
+	url = https://github.com/mpeddada1/java-spanner-jdbc.git
 	branch = update-gax
+[submodule "google-cloud-java"]
+	path = google-cloud-java
+	url = https://github.com/mpeddada1/google-cloud-java.git
+	branch = update-gax
+[submodule "java-shared-config"]
+	path = java-shared-config
+	url = https://github.com/mpeddada1/java-shared-config.git
+	branch = update-plugin

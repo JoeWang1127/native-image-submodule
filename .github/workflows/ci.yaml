@@ -5,8 +5,22 @@ on:
   pull_request:
 name: ci
 jobs:
-  units:
+  test:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        graalvm: [ 22.3.0 ]
+        java: [ 11, 17 ]
     steps:
-      - name: Test
-        run: echo "hello"
+    - uses: actions/checkout@v2
+    - uses: stCarolas/setup-maven@v4
+      with:
+        maven-version: 3.8.1
+    - uses: ayltai/setup-graalvm@v1
+      with:
+        java-version: ${{matrix.java}}
+        graalvm-version: ${{matrix.graalvm}}
+        native-image: true
+    - run: sudo apt-get install libxml2-utils
+    - run: ./scripts/run_graalvm_test.sh orgpolicy
