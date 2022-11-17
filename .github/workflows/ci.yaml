@@ -23,4 +23,4 @@ jobs:
         graalvm-version: ${{matrix.graalvm}}
         native-image: true
     - run: sudo apt-get install libxml2-utils
-    - run: ./scripts/run_graalvm_test.sh orgpolicy
+    - run: ./scripts/run_graalvm_test.sh bigquery
