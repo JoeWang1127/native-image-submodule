@@ -61,9 +61,7 @@ if [[ $CLIENT_LIBRARY == "orgpolicy" ]]; then
   pushd google-cloud-java/google-cloud-jar-parent
 else
   # Move to submodule parent directory and cd into library directory
-  cd ../..
-  ls
-  pwd
+  cd ..
   pushd java-"${CLIENT_LIBRARY}"
 fi
 
