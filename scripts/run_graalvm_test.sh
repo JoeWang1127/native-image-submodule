@@ -62,6 +62,8 @@ if [[ $CLIENT_LIBRARY == "orgpolicy" ]]; then
 else
   # Move to submodule parent directory and cd into library directory
   cd ../..
+  ls
+  pwd
   pushd java-"${CLIENT_LIBRARY}"
 fi
 
