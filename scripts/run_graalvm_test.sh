@@ -2,6 +2,8 @@
 
 set -e
 
+CLIENT_LIBRARY=$1
+
 # Get the directory of the build script
 scriptDir="$(realpath "$(dirname "${BASH_SOURCE[0]}")")"
 
