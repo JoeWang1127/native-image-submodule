@@ -31,17 +31,17 @@ cd "${scriptDir}"/..
 pushd java-shared-dependencies/first-party-dependencies
 
 # replace version
-xmllint --shell pom.xml << EOF
-setns x=http://maven.apache.org/POM/4.0.0
-cd .//x:artifactId[text()="gax-bom"]
-cd ../x:version
-set ${GAX_VERSION}
-cd ../..
-cd .//x:artifactId[text()="gax-grpc"]
-cd ../x:version
-set ${GAX_VERSION}
-save pom.xml
-EOF
+#xmllint --shell pom.xml << EOF
+#setns x=http://maven.apache.org/POM/4.0.0
+#cd .//x:artifactId[text()="gax-bom"]
+#cd ../x:version
+#set ${GAX_VERSION}
+#cd ../..
+#cd .//x:artifactId[text()="gax-grpc"]
+#cd ../x:version
+#set ${GAX_VERSION}
+#save pom.xml
+#EOF
 
 # cd into shared-dependencies parent directory
 cd ..
@@ -59,14 +59,9 @@ fi
 
 # Library
 # Clone monorepo libraries or cd into handwritten libraries in the submodule
-if [[ $CLIENT_LIBRARY == "orgpolicy" ]]; then
-  git clone "https://github.com/googleapis/google-cloud-java.git" --depth=1
-  pushd google-cloud-java/google-cloud-jar-parent
-else
-  # Move to submodule parent directory and cd into library directory
-  cd ..
-  pushd java-"${CLIENT_LIBRARY}"
-fi
+git clone "https://github.com/googleapis/google-cloud-java.git" --depth=1
+pushd google-cloud-java/google-cloud-jar-parent
+
 
 # Replace shared-dependencies version
 xmllint --shell pom.xml << EOF
@@ -77,18 +72,16 @@ set ${SHARED_DEPS_VERSION}
 save pom.xml
 EOF
 
+popd
+
 echo "Modification on the shared dependencies BOM:"
 git diff
 echo
 
-if [[ $CLIENT_LIBRARY == "orgpolicy" ]]; then
-  popd
-  pushd google-cloud-java/java-"${CLIENT_LIBRARY}"
-fi
+pushd google-cloud-java/java-"${CLIENT_LIBRARY}"
 
 # Run native image tests
 mvn clean install -DskipTests -Denforcer.skip=true
-java --version
 mvn test -Pnative -Denforcer.skip=true
 
 
